@@ -17,16 +17,12 @@ namespace IMDBSYS_Final_Project.Forms
         private INVENTORYEntities4 db;
         UserRepository userRepo;
         public string productname = String.Empty;
-        //int? userSelectedId = null;
         public Employee_form()
         {
             InitializeComponent();
             db = new INVENTORYEntities4();
             
         }
-
-        //public event Action<string, string, string, string> NewProductAdded;
-
 
         private void Employee_form_Load(object sender, EventArgs e)
         {
