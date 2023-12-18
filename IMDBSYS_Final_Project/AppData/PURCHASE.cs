@@ -12,9 +12,11 @@ namespace IMDBSYS_Final_Project.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class DB_LOGIN
+    public partial class PURCHASE
     {
-        public string USERNAME { get; set; }
-        public string PASSWORD { get; set; }
+        public int PRODUCTCODE { get; set; }
+        public string PRODUCTNAME { get; set; }
+        public int PRODUCTQNTY { get; set; }
+        public string PRODUCTPRICE { get; set; }
     }
 }

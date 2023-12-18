@@ -12,12 +12,12 @@ namespace IMDBSYS_Final_Project
         Error = 1
     }
 
-    //public enum Role
-    //{
-    //    Student = 1,
-    //    Teacher = 2,
-    //    Admin = 3
-    //}
+    public enum Role
+    {
+        EMPLOYEE = 1,
+        MANAGER = 2,
+        ADMIN = 3
+    }
     public class Constant
     {
 

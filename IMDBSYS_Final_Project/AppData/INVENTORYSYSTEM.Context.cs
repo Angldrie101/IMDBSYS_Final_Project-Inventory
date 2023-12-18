@@ -12,11 +12,14 @@ namespace IMDBSYS_Final_Project.AppData
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
-    public partial class FINALPROJECTEntities1 : DbContext
+    public partial class INVENTORYEntities4 : DbContext
     {
-        public FINALPROJECTEntities1()
-            : base("name=FINALPROJECTEntities1")
+        public INVENTORYEntities4()
+            : base("name=INVENTORYEntities4")
         {
         }
     
@@ -25,6 +28,15 @@ namespace IMDBSYS_Final_Project.AppData
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<DB_LOGIN> DB_LOGIN { get; set; }
+        public DbSet<PRODUCTINFO> PRODUCTINFO { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<USERACCOUNT> USERACCOUNT { get; set; }
+        public DbSet<vw_all_product_info> vw_all_product_info { get; set; }
+        public DbSet<PURCHASE> PURCHASE { get; set; }
+    
+        public virtual ObjectResult<sp_ProductInfo_Result> sp_ProductInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ProductInfo_Result>("sp_ProductInfo");
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ANGEL DORIE\OneDrive\Documents\IMDBSYS\Dbsys\IMDBSYS_Final_Project\IMDBSYS_Final_Project\AppData\InventoryModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ANGEL DORIE\OneDrive\Documents\IMDBSYS\Dbsys\IMDBSYS_Final_Project\IMDBSYS_Final_Project\AppData\INVENTORYSYSTEM.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

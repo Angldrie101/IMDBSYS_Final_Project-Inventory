@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IMDBSYS_Final_Project.AppData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,8 +14,9 @@ namespace IMDBSYS_Final_Project.Model
 
 
         // *********** Member 
-        public AppData.DB_LOGIN DB_LOGIN { get; set; }
+        public USERACCOUNT db_USERACCOUNT { get; set; }
 
+       // public PRODUCTINFO db_PRODUCTINFO { get; set; }
 
         //************
         private GetSet()

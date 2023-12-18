@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="INVENTORYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PRODUCTINFO">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="int" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCTQNTY" Type="int" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PURCHASE">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCTQNTY" Type="int" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="USERACCOUNT">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USERPASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ROLEID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'INVENTORY.dbo.vw_all_product_info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_all_product_info">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+            <PropertyRef Name="PRODUCTNAME" />
+            <PropertyRef Name="PRODUCTQNTY" />
+            <PropertyRef Name="PRODUCTPRICE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCTQNTY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_ProductInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="INVENTORYModelStoreContainer">
+          <EntitySet Name="PRODUCTINFO" EntityType="Self.PRODUCTINFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASE" EntityType="Self.PURCHASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERACCOUNT" EntityType="Self.USERACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_all_product_info" EntityType="Self.vw_all_product_info" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_all_product_info].[PRODUCTCODE] AS [PRODUCTCODE], 
+[vw_all_product_info].[PRODUCTNAME] AS [PRODUCTNAME], 
+[vw_all_product_info].[PRODUCTQNTY] AS [PRODUCTQNTY], 
+[vw_all_product_info].[PRODUCTPRICE] AS [PRODUCTPRICE]
+FROM [dbo].[vw_all_product_info] AS [vw_all_product_info]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="INVENTORYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PRODUCTINFO">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCTQNTY" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USERACCOUNT">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLEID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_all_product_info">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+            <PropertyRef Name="PRODUCTNAME" />
+            <PropertyRef Name="PRODUCTQNTY" />
+            <PropertyRef Name="PRODUCTPRICE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCTQNTY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="INVENTORYEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PRODUCTINFO" EntityType="Self.PRODUCTINFO" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="USERACCOUNT" EntityType="Self.USERACCOUNT" />
+          <EntitySet Name="vw_all_product_info" EntityType="Self.vw_all_product_info" />
+          <FunctionImport Name="sp_ProductInfo" ReturnType="Collection(INVENTORYModel.sp_ProductInfo_Result)" />
+          <EntitySet Name="PURCHASE" EntityType="INVENTORYModel.PURCHASE" />
+        </EntityContainer>
+        <ComplexType Name="sp_ProductInfo_Result">
+          <Property Type="Int32" Name="PRODUCTCODE" Nullable="false" />
+          <Property Type="String" Name="PRODUCTNAME" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PRODUCTQNTY" Nullable="false" />
+          <Property Type="String" Name="PRODUCTPRICE" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="PURCHASE">
+          <Key>
+            <PropertyRef Name="PRODUCTCODE" />
+          </Key>
+          <Property Name="PRODUCTCODE" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTQNTY" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTPRICE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="INVENTORYModelStoreContainer" CdmEntityContainer="INVENTORYEntities4">
+          <EntitySetMapping Name="PRODUCTINFO">
+            <EntityTypeMapping TypeName="INVENTORYModel.PRODUCTINFO">
+              <MappingFragment StoreEntitySet="PRODUCTINFO">
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTQNTY" ColumnName="PRODUCTQNTY" />
+                <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="INVENTORYModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERACCOUNT">
+            <EntityTypeMapping TypeName="INVENTORYModel.USERACCOUNT">
+              <MappingFragment StoreEntitySet="USERACCOUNT">
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_all_product_info">
+            <EntityTypeMapping TypeName="INVENTORYModel.vw_all_product_info">
+              <MappingFragment StoreEntitySet="vw_all_product_info">
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTQNTY" ColumnName="PRODUCTQNTY" />
+                <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ProductInfo" FunctionName="INVENTORYModel.Store.sp_ProductInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="INVENTORYModel.sp_ProductInfo_Result">
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTQNTY" ColumnName="PRODUCTQNTY" />
+                <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PURCHASE">
+            <EntityTypeMapping TypeName="INVENTORYModel.PURCHASE">
+              <MappingFragment StoreEntitySet="PURCHASE">
+                <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+                <ScalarProperty Name="PRODUCTQNTY" ColumnName="PRODUCTQNTY" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="PRODUCTCODE" ColumnName="PRODUCTCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

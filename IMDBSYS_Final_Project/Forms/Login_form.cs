@@ -39,6 +39,7 @@ namespace IMDBSYS_Final_Project.Forms
         {
             Signup_form form = new Signup_form();
             form.ShowDialog();
+            this.Close();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -58,32 +59,33 @@ namespace IMDBSYS_Final_Project.Forms
 
             if (userLogged != null)
             {
-                if (userLogged.PASSWORD.Equals(txtpassword.Text))
+                if (userLogged.USERPASSWORD.Equals(txtpassword.Text))
                 {
                     // Assigned to a singleton
-                    GetSet.GetInstance().DB_LOGIN = userLogged;
+                    GetSet.GetInstance().db_USERACCOUNT = userLogged;
 
-                    //switch ((Role)userLogged.roleId)
-                    //{
-                    //    case Role.Student:
-                    //        // Load student Dashboard
-                    //        new Frm_Student_Dashboard().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    case Role.Teacher:
-                    //        // Load Teacher Dashboard
-                    //        new Frm_Teacher_DashBoard().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    case Role.Admin:
-                    //        // Load Admin Dashboard
-                    //        new Frm_Admin_Dashboard().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    default:
-                          MessageBox.Show("Sucessful log in!");
-                    //        break;
-                    //}
+                    switch ((Role)userLogged.ROLEID)
+                    {
+                        case Role.EMPLOYEE:
+                            // Load student Dashboard
+                            new Employee_form().Show();
+                            this.Hide();
+                            break;
+                        case Role.MANAGER:
+                            // Load Teacher Dashboard
+                            new Manager_form().Show();
+                            this.Hide();
+                            break;
+                        case Role.ADMIN:
+                            // Load Admin Dashboard
+                            new Admin_form().Show();
+                            this.Hide();
+                            break;
+                        default:
+                            MessageBox.Show("Sucessful log in!");
+                            this.Hide();
+                            break;
+                    }
                 }
                 else
                 {
@@ -100,5 +102,6 @@ namespace IMDBSYS_Final_Project.Forms
         {
 
         }
+
     }
 }

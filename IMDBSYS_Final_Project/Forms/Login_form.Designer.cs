@@ -69,6 +69,7 @@
             this.lbl_signUp.Size = new System.Drawing.Size(46, 14);
             this.lbl_signUp.TabIndex = 23;
             this.lbl_signUp.Text = "Sign up";
+            this.lbl_signUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_signUp.Click += new System.EventHandler(this.lbl_signUp_Click);
             // 
             // label3
@@ -123,6 +124,7 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(238, 23);
             this.txtusername.TabIndex = 18;
+//            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
             // 
             // label1
             // 

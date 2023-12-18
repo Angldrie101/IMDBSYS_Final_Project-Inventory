@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup_form));
-            this.cb_Showpass = new System.Windows.Forms.CheckBox();
             this.lbl_login = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,29 +40,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Username = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cb_Showpass
-            // 
-            this.cb_Showpass.AutoSize = true;
-            this.cb_Showpass.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Showpass.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.cb_Showpass.Location = new System.Drawing.Point(33, 337);
-            this.cb_Showpass.Name = "cb_Showpass";
-            this.cb_Showpass.Size = new System.Drawing.Size(110, 18);
-            this.cb_Showpass.TabIndex = 34;
-            this.cb_Showpass.Text = "Show password";
-            this.cb_Showpass.UseVisualStyleBackColor = true;
-            this.cb_Showpass.CheckedChanged += new System.EventHandler(this.cb_Showpass_CheckedChanged);
             // 
             // lbl_login
             // 
             this.lbl_login.AutoSize = true;
             this.lbl_login.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_login.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_login.Location = new System.Drawing.Point(200, 432);
+            this.lbl_login.Location = new System.Drawing.Point(204, 522);
             this.lbl_login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_login.Name = "lbl_login";
             this.lbl_login.Size = new System.Drawing.Size(36, 14);
@@ -76,7 +66,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(55, 432);
+            this.label3.Location = new System.Drawing.Point(59, 522);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 14);
@@ -99,7 +89,7 @@
             this.btn_Register.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_Register.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Register.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Register.Location = new System.Drawing.Point(33, 370);
+            this.btn_Register.Location = new System.Drawing.Point(37, 460);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(238, 35);
             this.btn_Register.TabIndex = 30;
@@ -160,13 +150,57 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtConfirmPass
+            // 
+            this.txtConfirmPass.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPass.Location = new System.Drawing.Point(33, 365);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.Size = new System.Drawing.Size(238, 23);
+            this.txtConfirmPass.TabIndex = 35;
+            this.txtConfirmPass.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(34, 347);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 15);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "confirm password";
+            // 
+            // cbRole
+            // 
+            this.cbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(34, 418);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(237, 24);
+            this.cbRole.TabIndex = 36;
+            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(34, 400);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 15);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Role";
+            // 
             // Signup_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(305, 481);
-            this.Controls.Add(this.cb_Showpass);
+            this.ClientSize = new System.Drawing.Size(305, 551);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbRole);
+            this.Controls.Add(this.txtConfirmPass);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_login);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,6 +213,7 @@
             this.Name = "Signup_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup_form";
+            this.Load += new System.EventHandler(this.Signup_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -187,8 +222,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox cb_Showpass;
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -199,5 +232,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_Username;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.TextBox txtConfirmPass;
+        private System.Windows.Forms.Label label4;
     }
 }
