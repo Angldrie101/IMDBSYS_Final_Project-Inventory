@@ -20,12 +20,12 @@ namespace IMDBSYS_Final_Project
             db = new INVENTORYEntities4();
         }
 
-        public ErrorCode NewUser(PRODUCTINFO aproductinfo, ref String outMessage)
+        public ErrorCode NewUser(PURCHASE aproductinfo, ref String outMessage)
         {
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                db.PRODUCTINFO.Add(aproductinfo);
+                db.PURCHASE.Add(aproductinfo);
                 db.SaveChanges();
 
                 outMessage = "Inserted";
@@ -39,7 +39,7 @@ namespace IMDBSYS_Final_Project
             return retValue;
         }
 
-        public ErrorCode UpdateUser(int? productcode, String productname, String productqnty, String productprice, PRODUCTINFO aproductinfo, ref String outMessage)
+        public ErrorCode UpdateUser(int? productcode, String productname, String productqnty, String productprice, PURCHASE ductinfo, ref String outMessage)
         {
             ErrorCode retValue = ErrorCode.Error;
             try
@@ -47,10 +47,10 @@ namespace IMDBSYS_Final_Project
                 // Find the user with id
                 PURCHASE product = db.PURCHASE.Where(m => m.PRODUCTCODE == productcode).FirstOrDefault();
                 // Update the value of the retrieved user
-                product.PRODUCTCODE = aproductinfo.PRODUCTCODE;
-                product.PRODUCTNAME = aproductinfo.PRODUCTNAME;
-                product.PRODUCTQNTY = aproductinfo.PRODUCTQNTY;
-                product.PRODUCTPRICE = aproductinfo.PRODUCTPRICE;
+                product.PRODUCTCODE = ductinfo.PRODUCTCODE;
+                product.PRODUCTNAME = ductinfo.PRODUCTNAME;
+                product.PRODUCTQNTY = ductinfo.PRODUCTQNTY;
+                product.PRODUCTPRICE = ductinfo.PRODUCTPRICE;
 
                 db.SaveChanges();       // Execute the update
 
@@ -119,12 +119,12 @@ namespace IMDBSYS_Final_Project
             }
         }
 
-        public PRODUCTINFO GetProductInfo(String pname)
+        public PURCHASE GetProductInfo(String pname)
         {
             using (db = new INVENTORYEntities4())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.PRODUCTINFO.Where(s => s.PRODUCTNAME == pname).FirstOrDefault();
+                return db.PURCHASE.Where(s => s.PRODUCTNAME == pname).FirstOrDefault();
             }
         }
 

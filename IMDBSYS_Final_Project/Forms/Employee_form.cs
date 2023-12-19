@@ -209,9 +209,9 @@ namespace IMDBSYS_Final_Project.Forms
                 return;
             }
             int code = Convert.ToInt32(txtProductCode.Text);
-            var productinfo = userRepo.GetProductInfo(pcode);
+            var ductinfo = userRepo.GetProductInfo(pcode);
 
-            ErrorCode retValue = userRepo.UpdateUser(code, pname, pqnty, pprice, productinfo, ref strOutputMsg);
+            ErrorCode retValue = userRepo.UpdateUser(code, pname, pqnty, pprice, ductinfo, ref strOutputMsg);
             if (retValue == ErrorCode.Success)
             {
                 //Clear the errors
